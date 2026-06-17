@@ -190,7 +190,7 @@ Gy = -top0 - 2×top1 - top2 + bot0 + 2×bot1 + bot2
 
 下图为 `gen_input_rgb.py` 生成的 128×72 测试输入图像。图像包含顶部灰度阶梯、左侧倾斜边、中心3×3灰阶方块阵列和底部楔形条纹四个特征区域。
 
-![输入测试图像](images/input_rgb.png)
+![输入测试图像](images/input_rgb_1.png)
 
 <p align="center">图1：输入测试图像（128×72 RGB888）</p>
 
@@ -198,7 +198,7 @@ Gy = -top0 - 2×top1 - top2 + bot0 + 2×bot1 + bot2
 
 下图为经过Sobel边缘检测后的输出灰度图。白色区域表示强边缘，黑色区域表示无边缘。可以看到各特征区域的边缘被清晰提取：
 
-![Sobel边缘检测输出图像](images/sobel_out.png)
+![Sobel边缘检测输出图像](images/sobel_out_1.png)
 
 <p align="center">图2：Sobel边缘检测输出图像</p>
 
