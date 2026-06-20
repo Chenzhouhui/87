@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jun 18 11:11:07 2026
+# Process ID: 7800
+# Current directory: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1
+# Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
+# Log file: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/top.vdi
+# Journal file: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace

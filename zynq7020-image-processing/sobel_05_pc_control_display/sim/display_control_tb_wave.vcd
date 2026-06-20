@@ -1,0 +1,91 @@
+$date
+	Thu Jun 18 12:08:06 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module display_control_model_tb $end
+$var wire 24 ! rgb_out [23:0] $end
+$var reg 2 " display_mode [1:0] $end
+$var reg 8 # edge_pixel [7:0] $end
+$var reg 1 $ overlay_enable $end
+$var reg 24 % rgb_pixel [23:0] $end
+$var reg 8 & threshold [7:0] $end
+$scope module dut $end
+$var wire 2 ' display_mode [1:0] $end
+$var wire 8 ( edge_pixel [7:0] $end
+$var wire 1 ) overlay_active $end
+$var wire 1 $ overlay_enable $end
+$var wire 24 * rgb_pixel [23:0] $end
+$var wire 8 + threshold [7:0] $end
+$var wire 16 , gray_sum [15:0] $end
+$var wire 8 - gray [7:0] $end
+$var wire 1 . edge_on $end
+$var parameter 2 / MODE_EDGE $end
+$var parameter 2 0 MODE_GRAY $end
+$var parameter 2 1 MODE_ORIGINAL $end
+$var parameter 2 2 MODE_OVERLAY $end
+$var reg 24 3 rgb_out [23:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 2
+b0 1
+b1 0
+b10 /
+$end
+#0
+$dumpvars
+b1000000100000010000000 3
+1.
+b111101 -
+b11110110100000 ,
+b1010000 +
+b1000000100000010000000 *
+0)
+b1011010 (
+b0 '
+b1010000 &
+b1000000100000010000000 %
+0$
+b1011010 #
+b0 "
+b1000000100000010000000 !
+$end
+#1000
+b1111010011110100111101 !
+b1111010011110100111101 3
+b1 "
+b1 '
+#2000
+b111111111111111111111111 !
+b111111111111111111111111 3
+b10 "
+b10 '
+#3000
+b0 !
+b0 3
+0.
+b1111000 &
+b1111000 +
+#4000
+1)
+b111111110010000000100000 !
+b111111110010000000100000 3
+b11 "
+b11 '
+1.
+b1010000 &
+b1010000 +
+#5000
+b111111110010000000100000 !
+b111111110010000000100000 3
+1$
+b0 "
+b0 '
+#6000

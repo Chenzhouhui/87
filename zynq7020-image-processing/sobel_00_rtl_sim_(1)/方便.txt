@@ -1,0 +1,10 @@
+按下 Win+I 打开系统设置，依次进入「应用」→「高级应用设置」→「应用执行别名」。
+在列表中找到 应用安装程序 - python.exe 和 应用安装程序 - python3.exe，将两个开关全部关闭。
+关闭后重新打开 PowerShell，再次执行 python --version 验证。
+
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+ cd "E:\fpga实验\zynq7020-image-processing\sobel_00_rtl_sim_(1)"
+
+.\run_sim.ps1 -Iverilog "E:\iverilog\bin\iverilog.exe" -Vvp "E:\iverilog\bin\vvp.exe"

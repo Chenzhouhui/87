@@ -1,0 +1,559 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Wed Jun 10 20:15:49 2026
+# Process ID: 32416
+# Current directory: D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1
+# Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
+# Log file: D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top.vdi
+# Journal file: D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace
+Command: link_design -top top -part xc7z020clg400-2
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Project 1-454] Reading design checkpoint 'd:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/rgb2dvi_0.dcp' for cell 'hdmi_pl_top_i/rgb2dvi_m0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_bram_ctrl_0_0/ps_uart_bram_hdmi_axi_bram_ctrl_0_0.dcp' for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_bram_ctrl_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/ps_uart_bram_hdmi_axi_smc_0.dcp' for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_blk_mem_gen_0_0/ps_uart_bram_hdmi_blk_mem_gen_0_0.dcp' for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/blk_mem_gen_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_processing_system7_0_0/ps_uart_bram_hdmi_processing_system7_0_0.dcp' for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/processing_system7_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0.dcp' for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/rst_ps7_0_50M'
+INFO: [Netlist 29-17] Analyzing 2435 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock_board.xdc] for cell 'hdmi_pl_top_i/video_clock_m0/inst'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock_board.xdc] for cell 'hdmi_pl_top_i/video_clock_m0/inst'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc] for cell 'hdmi_pl_top_i/video_clock_m0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
+get_clocks: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1334.977 ; gain = 576.383
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc] for cell 'hdmi_pl_top_i/video_clock_m0/inst'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_processing_system7_0_0/ps_uart_bram_hdmi_processing_system7_0_0.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/processing_system7_0/inst'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_processing_system7_0_0/ps_uart_bram_hdmi_processing_system7_0_0.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/processing_system7_0/inst'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0_board.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/rst_ps7_0_50M/U0'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0_board.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/rst_ps7_0_50M/U0'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/rst_ps7_0_50M/U0'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/rst_ps7_0_50M/U0'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0_board.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0_board.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0.xdc] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi.xdc] for cell 'hdmi_pl_top_i/rgb2dvi_m0/U0'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi.xdc] for cell 'hdmi_pl_top_i/rgb2dvi_m0/U0'
+Parsing XDC File [D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk' already exists, overwriting the previous clock with the same name. [D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc:3]
+Finished Parsing XDC File [D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc]
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'd:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/ps_uart_bram_hdmi_axi_smc_0.dcp'
+Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi_clocks.xdc] for cell 'hdmi_pl_top_i/rgb2dvi_m0/U0'
+Finished Parsing XDC File [d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi_clocks.xdc] for cell 'hdmi_pl_top_i/rgb2dvi_m0/U0'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'top'...
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1232 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 80 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 1152 instances
+
+16 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1339.309 ; gain = 1023.449
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.658 . Memory (MB): peak = 1339.309 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 10 inverter(s) to 62 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: af749ab3
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1343.344 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 16 cells and removed 62 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 9e59e293
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1343.344 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 14 cells and removed 41 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 1206585bc
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1343.344 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 753 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 1206585bc
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1343.344 ; gain = 0.000
+INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: 1206585bc
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1343.344 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1343.344 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: e48b6a22
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1343.344 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=1.924 | TNS=0.000 |
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 20 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 4 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 4 Total Ports: 40
+Ending PowerOpt Patch Enables Task | Checksum: 1ae1617b1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.197 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 1ae1617b1
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 1645.441 ; gain = 302.098
+INFO: [Common 17-83] Releasing license: Implementation
+37 Infos, 1 Warnings, 3 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:16 . Memory (MB): peak = 1645.441 ; gain = 306.133
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
+Command: report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 10dd649c1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 105371bc0
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+Phase 1.3 Build Placer Netlist Model | Checksum: 187977081
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 187977081
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 187977081
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 2 Global Placement
+Phase 2 Global Placement | Checksum: 1c945be56
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:28 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1c945be56
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:28 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 55b0bf3b
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:38 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: ef52667b
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:38 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: fa53919b
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:38 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.5 Timing Path Optimizer
+Phase 3.5 Timing Path Optimizer | Checksum: fa53919b
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:38 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.6 Fast Optimization
+Phase 3.6 Fast Optimization | Checksum: 81bb4fe0
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:39 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.7 Small Shape Detail Placement
+Phase 3.7 Small Shape Detail Placement | Checksum: ebbfcbed
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:44 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.8 Re-assign LUT pins
+Phase 3.8 Re-assign LUT pins | Checksum: 8d0fcb54
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:45 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 3.9 Pipeline Register Optimization
+Phase 3.9 Pipeline Register Optimization | Checksum: 8d0fcb54
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:45 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 8d0fcb54
+
+Time (s): cpu = 00:01:00 ; elapsed = 00:00:45 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 1daa2600a
+
+Phase 4.1.1.1 BUFG Insertion
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Place 46-33] Processed net hdmi_pl_top_i/bram_rst, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-31] BUFG insertion identified 1 candidate nets, 0 success, 1 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1daa2600a
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:53 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.562. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 1c0c57d4c
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:53 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 1c0c57d4c
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:53 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1c0c57d4c
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:54 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 4.3 Placer Reporting
+Phase 4.3 Placer Reporting | Checksum: 1c0c57d4c
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:54 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 4.4 Final Placement Cleanup
+Phase 4.4 Final Placement Cleanup | Checksum: 2081c40f0
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:54 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 2081c40f0
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:54 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Ending Placer Task | Checksum: 1382e74ab
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:54 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+60 Infos, 1 Warnings, 5 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:15 ; elapsed = 00:00:57 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top_placed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_io -file top_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_placed.rpt -pb top_utilization_placed.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.140 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_control_sets -verbose -file top_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+Checksum: PlaceDB: 734a7bd5 ConstDB: 0 ShapeSum: c4e3f8d6 RouteDB: 0
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: 12c9e4d8e
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:22 . Memory (MB): peak = 1645.441 ; gain = 0.000
+Post Restoration Checksum: NetGraph: cc08faa2 NumContArr: 609552ec Constraints: 0 Timing: 0
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 12c9e4d8e
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:23 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: 12c9e4d8e
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:23 . Memory (MB): peak = 1645.441 ; gain = 0.000
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: 12c9e4d8e
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:23 . Memory (MB): peak = 1645.441 ; gain = 0.000
+ Number of Nodes with overlaps = 0
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 1c70ba5c3
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:29 . Memory (MB): peak = 1645.441 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.808  | TNS=0.000  | WHS=-0.504 | THS=-1231.142|
+
+Phase 2 Router Initialization | Checksum: 12d602528
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:32 . Memory (MB): peak = 1659.605 ; gain = 14.164
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: ccfb35b4
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:35 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 2663
+ Number of Nodes with overlaps = 800
+ Number of Nodes with overlaps = 171
+ Number of Nodes with overlaps = 41
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.682  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: e0af670f
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:55 . Memory (MB): peak = 1663.316 ; gain = 17.875
+Phase 4 Rip-up And Reroute | Checksum: e0af670f
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:55 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: e0af670f
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:55 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: e0af670f
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:55 . Memory (MB): peak = 1663.316 ; gain = 17.875
+Phase 5 Delay and Skew Optimization | Checksum: e0af670f
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:55 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: b84d631d
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:00:56 . Memory (MB): peak = 1663.316 ; gain = 17.875
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.794  | TNS=0.000  | WHS=0.061  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: b84d631d
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:00:57 . Memory (MB): peak = 1663.316 ; gain = 17.875
+Phase 6 Post Hold Fix | Checksum: b84d631d
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:00:57 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 5.99477 %
+  Global Horizontal Routing Utilization  = 6.22515 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 8cb56b1f
+
+Time (s): cpu = 00:01:25 ; elapsed = 00:00:57 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 8cb56b1f
+
+Time (s): cpu = 00:01:25 ; elapsed = 00:00:57 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 14d5916b9
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:00:58 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.794  | TNS=0.000  | WHS=0.061  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 14d5916b9
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:00:58 . Memory (MB): peak = 1663.316 ; gain = 17.875
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:00:58 . Memory (MB): peak = 1663.316 ; gain = 17.875
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+76 Infos, 1 Warnings, 5 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:29 ; elapsed = 00:01:00 . Memory (MB): peak = 1663.316 ; gain = 17.875
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 1663.316 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top_routed.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
+Command: report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top_drc_routed.rpt.
+report_drc completed successfully
+INFO: [runtcl-4] Executing : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
+Command: report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 1753.289 ; gain = 89.973
+INFO: [runtcl-4] Executing : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
+Command: report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+Running Vector-less Activity Propagation...
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+88 Infos, 2 Warnings, 9 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [runtcl-4] Executing : report_route_status -file top_route_status.rpt -pb top_route_status.pb
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file top_timing_summary_routed.rpt -rpx top_timing_summary_routed.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
+Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+INFO: [runtcl-4] Executing : report_incremental_reuse -file top_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-545] No incremental reuse to report, no incremental placement and routing data was found.
+INFO: [runtcl-4] Executing : report_clock_utilization -file top_clock_utilization_routed.rpt
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+Command: write_bitstream -force top.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./top.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+105 Infos, 7 Warnings, 10 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:30 ; elapsed = 00:00:25 . Memory (MB): peak = 2283.242 ; gain = 473.453
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 10 20:19:37 2026...

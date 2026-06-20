@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jun  4 12:22:49 2026
+# Process ID: 29160
+# Current directory: D:/Github/FPGA-course/sobel/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/ps_uart_bram_hdmi_axi_smc_0_synth_1
+# Command line: vivado.exe -log ps_uart_bram_hdmi_axi_smc_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ps_uart_bram_hdmi_axi_smc_0.tcl
+# Log file: D:/Github/FPGA-course/sobel/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/ps_uart_bram_hdmi_axi_smc_0_synth_1/ps_uart_bram_hdmi_axi_smc_0.vds
+# Journal file: D:/Github/FPGA-course/sobel/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/ps_uart_bram_hdmi_axi_smc_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source ps_uart_bram_hdmi_axi_smc_0.tcl -notrace

@@ -1,0 +1,77 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jun 18 11:11:07 2026
+# Process ID: 7800
+# Current directory: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1
+# Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
+# Log file: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/top.vdi
+# Journal file: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace
+Command: open_checkpoint top_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 238.617 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 70 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top_board.xdc]
+Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top_board.xdc]
+Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
+get_clocks: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1246.781 ; gain = 566.594
+Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top_early.xdc]
+Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top.xdc]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk' already exists, overwriting the previous clock with the same name. [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.srcs/constrs_1/new/hdmi_out_test.xdc:3]
+Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top.xdc]
+Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top_late.xdc]
+Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_03_uart_hdmi/sobel_03_uart_hdmi.runs/impl_1/.Xil/Vivado-7800-PC039/dcp1/top_late.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.484 . Memory (MB): peak = 1255.383 ; gain = 7.176
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.484 . Memory (MB): peak = 1255.383 ; gain = 7.176
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 27 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 27 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2017.4 (64-bit) build 2086221
+open_checkpoint: Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1255.422 ; gain = 1025.594
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+WARNING: [Memdata 28-167] Found XPM memory block ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst with a P_MEMORY_PRIMITIVE property set to distributed. A value of block is required. You will not be able to use the updatemem program to update the bitstream with new data for the ps_uart_bram_hdmi_wrapper_i/ps_uart_bram_hdmi_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst block.
+Command: write_bitstream -force top.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado 12-3199] DRC finished with 0 Errors
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
+INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./top.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+21 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:19 ; elapsed = 00:00:17 . Memory (MB): peak = 1746.715 ; gain = 490.414
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 18 11:11:49 2026...

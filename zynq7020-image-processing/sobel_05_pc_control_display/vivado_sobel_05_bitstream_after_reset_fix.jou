@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Wed Jun 10 20:13:55 2026
+# Process ID: 23156
+# Current directory: D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display
+# Command line: vivado.exe -mode batch -source run_sobel_05_bitstream.tcl -journal vivado_sobel_05_bitstream_after_reset_fix.jou -log vivado_sobel_05_bitstream_after_reset_fix.log
+# Log file: D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/vivado_sobel_05_bitstream_after_reset_fix.log
+# Journal file: D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display\vivado_sobel_05_bitstream_after_reset_fix.jou
+#-----------------------------------------------------------
+source run_sobel_05_bitstream.tcl
