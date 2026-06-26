@@ -1,0 +1,159 @@
+% !Mode:: "TeX:UTF-8"
+
+\section{项目设计与实现}
+
+\subsection{硬件设计}
+
+\subsubsection{系统总体架构}
+
+本系统基于ZYNQ7020 SoC平台，采用PS+PL协同设计。PS端通过UART接收PC图像数据，写入AXI BRAM；PL端读取BRAM数据，完成灰度转换和多种边缘检测算法，最后通过HDMI显示。
+
+\subsubsection{数据流设计}
+
+数据流路径：PC(UART) → PS(AXI BRAM) → PL(BRAM读取) → rgb\_to\_gray → 四个算法核并行 → display\_mode选择 → HDMI输出。
+
+\subsubsection{并行算法架构}
+
+四种边缘检测算法共享rgb\_to\_gray输出，并行处理。每个核有独立的行缓冲和边缘缓冲区，显示时根据display\_mode选择输出。
+
+\subsubsection{显示模式设计}
+
+显示模式从2-bit扩展到3-bit，支持7种模式（0-6）：
+- mode=0：原图
+- mode=1：灰度图
+- mode=2：Sobel边缘
+- mode=3：彩色叠加
+- mode=4：Laplacian边缘
+- mode=5：Prewitt边缘
+- mode=6：Roberts边缘
+
+\subsubsection{边缘检测算法对比}
+
+\begin{center}
+\resizebox{0.821\textwidth}{!}{
+    \begin{tabular}{|C{3cm}|C{3cm}|C{3cm}|C{3cm}|C{3cm}|}
+      \hline
+      \texttt{特性} & \texttt{Sobel} & \texttt{Prewitt} & \texttt{Laplacian} & \texttt{Roberts} \\
+      \hline
+      \texttt{卷积核} & \texttt{3×3} & \texttt{3×3} & \texttt{3×3} & \texttt{2×2} \\
+      \hline
+      \texttt{中心权重} & \texttt{2x} & \texttt{1x} & \texttt{4x} & \texttt{无} \\
+      \hline
+      \texttt{导数阶数} & \texttt{一阶} & \texttt{一阶} & \texttt{二阶} & \texttt{一阶} \\
+      \hline
+      \texttt{噪声敏感} & \texttt{中等} & \texttt{较高} & \texttt{高} & \texttt{最高} \\
+      \hline
+    \end{tabular}
+}
+\end{center}
+
+\subsection{软件设计}
+
+\subsubsection{修改文件清单}
+
+\begin{center}
+\resizebox{0.821\textwidth}{!}{
+    \begin{tabular}{|C{5cm}|C{2cm}|C{9cm}|}
+      \hline
+      \texttt{文件} & \texttt{操作} & \texttt{说明} \\
+      \hline
+      \texttt{prewitt\_core.v} & \texttt{新增} & \texttt{Prewitt边缘检测核心模块} \\
+      \hline
+      \texttt{laplacian\_core.v} & \texttt{新增} & \texttt{Laplacian边缘检测核心模块} \\
+      \hline
+      \texttt{roberts\_core.v} & \texttt{新增} & \texttt{Roberts边缘检测核心模块} \\
+      \hline
+      \texttt{hdmi\_bram\_sobel\_display.v} & \texttt{修改} & \texttt{集成3个算法核，扩展显示模式到3-bit} \\
+      \hline
+      \texttt{display\_control\_model.v} & \texttt{修改} & \texttt{仿真模型支持7种模式} \\
+      \hline
+      \texttt{display\_control\_model\_tb.v} & \texttt{修改} & \texttt{新增算法测试用例} \\
+      \hline
+      \texttt{ps\_uart\_control\_bram\_app/src/main.c} & \texttt{修改} & \texttt{mode位掩码扩展到0x07} \\
+      \hline
+    \end{tabular}
+}
+\end{center}
+
+\subsubsection{PL端修改}
+
+\begin{itemize}
+    \item \begin{verbatim}hdmi\_bram\_sobel\_display.v：\end{verbatim}
+    \begin{itemize}
+        \item display\_mode扩展为3-bit：reg [2:0] display\_mode
+        \item 新增3个边缘缓冲区：edge\_mem\_prewitt、edge\_mem\_laplace、edge\_mem\_roberts
+        \item 并行例化3个算法核，共享gray输出
+        \item 输出多路选择：根据display\_mode选择边缘数据
+        \item SCAN\_WAIT等待4个核完成
+    \end{itemize}
+    \item \begin{verbatim}prewitt\_core.v：\end{verbatim}
+    \begin{itemize}
+        \item Gx/Gy去掉左移1位操作，权重为1x
+        \item 行缓冲和边界处理复用sobel\_core结构
+    \end{itemize}
+    \item \begin{verbatim}laplacian\_core.v：\end{verbatim}
+    \begin{itemize}
+        \item 二阶导数：L = 4*mid1 - top1 - mid0 - mid2 - bot1
+        \item 输出绝对值作为边缘强度
+    \end{itemize}
+    \item \begin{verbatim}roberts\_core.v：\end{verbatim}
+    \begin{itemize}
+        \item 2×2卷积核，计算对角线梯度
+        \item 资源消耗最小
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{PS端修改}
+
+\begin{itemize}
+    \item \begin{verbatim}main.c：\end{verbatim}
+    \begin{itemize}
+        \item 模式位掩码：value \& 0x07U（支持0-6模式）
+        \item 启动信息更新：包含所有模式说明
+    \end{itemize}
+\end{itemize}
+
+\subsection{代码介绍}
+
+\subsubsection{初始化和配置}
+
+\begin{itemize}
+    \item \begin{verbatim}display\_mode初始化：\end{verbatim}默认MODE\_EDGE（Sobel）
+    \item \begin{verbatim}阈值初始化：\end{verbatim}默认值80
+    \item \begin{verbatim}BRAM地址配置：\end{verbatim}CTRL\_MODE\_ADDR = 32'h0000\_9000
+\end{itemize}
+
+\subsubsection{主功能实现}
+
+\begin{itemize}
+    \item \begin{verbatim}rgb\_to\_gray()：\end{verbatim}RGB转灰度，输出8-bit灰度值
+    \item \begin{verbatim}sobel\_core()：\end{verbatim}3×3 Sobel边缘检测，中心权重2x
+    \item \begin{verbatim}prewitt\_core()：\end{verbatim}3×3 Prewitt边缘检测，权重1x
+    \item \begin{verbatim}laplacian\_core()：\end{verbatim}3×3 Laplacian边缘检测，二阶导数
+    \item \begin{verbatim}roberts\_core()：\end{verbatim}2×2 Roberts边缘检测，对角线梯度
+\end{itemize}
+
+\subsubsection{特定条件响应}
+
+\begin{itemize}
+    \item \begin{verbatim}SCAN\_WAIT：\end{verbatim}等待4个核完成后再进入下一帧
+    \item \begin{verbatim}边界处理：\end{verbatim}图像边界输出黑色（0x00）
+    \item \begin{verbatim}阈值比较：\end{verbatim}edge\_data > threshold输出白色，否则黑色
+\end{itemize}
+
+\subsection{技术实现细节}
+
+\subsubsection{算法并行机制}
+
+四个算法核共享rgb\_to\_gray输出，并行处理同一帧数据。每个核有独立的2行行缓冲、状态机和边缘缓冲区。显示时通过display\_mode多路选择输出，实现零延迟切换。
+
+\subsubsection{资源优化策略}
+
+- Prewitt去掉左移操作，不消耗DSP
+- Laplacian的4倍乘法可优化为左移2位
+- Roberts使用2×2卷积核，资源最省
+- 四个核共享灰度转换，避免重复计算
+
+\subsubsection{模式扩展方案}
+
+显示模式从2-bit扩展到3-bit，PS端掩码从0x03扩展到0x07。上位机命令格式保持兼容，新增模式4/5/6对应Laplacian/Prewitt/Roberts。

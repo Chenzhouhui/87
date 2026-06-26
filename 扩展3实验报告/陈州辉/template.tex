@@ -1,0 +1,75 @@
+% !TeX program = xelatex
+% FPGA课程设计报告模板
+
+\documentclass[12pt, a4paper]{ctexart}
+\usepackage{GDUTReport}
+
+% 去掉目录和引用的红框
+\hypersetup{
+    hidelinks,
+    colorlinks=false,
+    pdfborder={0 0 0},
+}
+
+% 固定图片位置
+\usepackage{float}
+
+% 页面布局设置
+\setstretch{1.5} % 设置全局行距为1.5倍
+
+% 字体设置
+\setmainfont{Times New Roman} % 英文正文为Times New Roman
+
+% 封面内容
+{
+    % 课程名称
+    \title{FPGA课程设计报告}
+    % 报告标题
+    \subtitle{ZYNQ7020图像处理系统——综合扩展任务3：增加图像处理算法}
+    % 姓名
+    \name{陈州辉}
+    % 学号
+    \thenumber{3123009555}
+    % 专业
+    \major{微电子科学与工程}
+    % 班级
+    \class{微电子1班}
+    % 队名
+    \team{87}
+    % 指导老师
+    \teacher{周贤中}
+}
+
+\begin{document}
+
+% 封面
+\pagenumbering{gobble}
+\makecover
+
+% 目录
+\tableofcontents
+\clearpage
+
+% 正文
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{body/chapter1}
+\include{body/chapter2}
+\include{body/chapter3}
+\include{body/chapter4}
+\include{body/chapter5}
+\include{body/chapter6}
+\include{body/chapter7}
+\include{body/chapter8}
+
+% 附录
+\appendix
+\section{\centering 设计图纸}
+\subsection*{系统架构图}
+完整系统架构图见附件。
+
+\section{\centering 代码清单}
+完整Verilog源代码见随附文件。
+
+\end{document}

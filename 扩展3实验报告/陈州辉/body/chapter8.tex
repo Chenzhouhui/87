@@ -1,0 +1,99 @@
+% !Mode:: "TeX:UTF-8"
+
+\section{附录}
+
+\subsection{完整代码附录}
+
+注：个人代码贡献标注于 6.1 编码工作
+
+核心模块prewitt\_core.v的关键代码如下：
+
+\begin{lstlisting}[style=Verilog, title=\texttt{prewitt\_core.v 核心代码}]
+// === Prewitt 卷积计算 ===
+// 水平梯度Gx
+gx = -$signed({4'd0, top0}) + $signed({4'd0, top2})
+     - $signed({4'd0, mid0}) + $signed({4'd0, mid2})
+     - $signed({4'd0, bot0}) + $signed({4'd0, bot2});
+
+// 垂直梯度Gy
+gy = -$signed({4'd0, top0}) - $signed({4'd0, top1}) - $signed({4'd0, top2})
+     + $signed({4'd0, bot0}) + $signed({4'd0, bot1}) + $signed({4'd0, bot2});
+
+// 边缘强度 = |Gx| + |Gy|
+mag = abs_gx + abs_gy;
+edge_data <= (mag > 8'd255) ? 8'd255 : mag[7:0];
+\end{lstlisting}
+
+核心模块laplacian\_core.v的关键代码如下：
+
+\begin{lstlisting}[style=Verilog, title=\texttt{laplacian\_core.v 核心代码}]
+// === Laplacian 二阶导数计算 ===
+// 4-邻域卷积核: [0 -1 0; -1 4 -1; 0 -1 0]
+// L = 4*mid1 - top1 - mid0 - mid2 - bot1
+laplace = ($signed({4'd0, mid1}) <<< 2)
+         - $signed({4'd0, top1})
+         - $signed({4'd0, mid0})
+         - $signed({4'd0, mid2})
+         - $signed({4'd0, bot1});
+
+// 取绝对值
+abs_laplace = laplace[10] ? (~laplace + 11'd1) : laplace;
+
+// 边缘输出
+edge_data <= (abs_laplace > 11'd255) ? 8'hff : abs_laplace[7:0];
+\end{lstlisting}
+
+核心模块roberts\_core.v的关键代码如下：
+
+\begin{lstlisting}[style=Verilog, title=\texttt{roberts\_core.v 核心代码}]
+// === Roberts Cross 对角线梯度计算 ===
+// 2×2卷积核
+// Gx = top_left - bottom_right
+// Gy = top_right - bottom_left
+gx = $signed({2'd0, top_left}) - $signed({2'd0, bottom_right});
+gy = $signed({2'd0, top_right}) - $signed({2'd0, bottom_left});
+
+// 取绝对值
+abs_gx = gx[9] ? (~gx + 10'd1) : gx;
+abs_gy = gy[9] ? (~gy + 10'd1) : gy;
+
+// 边缘强度 = |Gx| + |Gy|
+mag = abs_gx + abs_gy;
+edge_data <= (mag > 11'd255) ? 8'hff : mag[7:0];
+\end{lstlisting}
+
+\subsection{文件修改对照表}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        文件 & 操作 & 说明 \\
+        \hline
+        prewitt\_core.v & 新增 & Prewitt边缘检测核心模块 \\
+        \hline
+        laplacian\_core.v & 新增 & Laplacian边缘检测核心模块 \\
+        \hline
+        roberts\_core.v & 新增 & Roberts边缘检测核心模块 \\
+        \hline
+        hdmi\_bram\_sobel\_display.v & 修改 & 集成3个算法核 + 模式4/5/6 + 3-bit扩展 \\
+        \hline
+        sim/display\_control\_model.v & 修改 & 支持MODE\_LAPLACIAN/PREWITT/ROBERTS \\
+        \hline
+        sim/display\_control\_model\_tb.v & 修改 & 新增算法测试用例 \\
+        \hline
+        ps\_uart\_control\_bram\_app/src/main.c & 修改 & mode位掩码扩展到0x07 \\
+        \hline
+    \end{tabular}
+    \caption{文件修改对照表}
+    \label{tab:file_changes}
+\end{table}
+
+\clearpage
+\section{参考资料、文献}
+\begin{enumerate}
+    \item 王金明. 数字系统设计与Verilog HDL(第7版). 电子工业出版社, 2019.
+    \item Xilinx. Zynq-7000 SoC Technical Reference Manual, 2021.
+    \item Gonzalez, R.C. Digital Image Processing. Pearson, 2018.
+    \item 实验05扩展报告\_Prewitt边缘检测算法集成.
+\end{enumerate}

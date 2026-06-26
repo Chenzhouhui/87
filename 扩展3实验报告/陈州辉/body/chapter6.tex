@@ -1,0 +1,94 @@
+% !Mode:: "TeX:UTF-8"
+
+\section{个人贡献}
+
+
+\subsection{报告撰写}
+
+本实验报告由本人独立完成，包括：
+\begin{itemize}
+    \item 系统设计原理阐述
+    \item 四种边缘检测算法原理分析
+    \item 修改内容详解
+    \item 仿真结果整理与分析
+    \item 资源利用率和时序结果分析
+    \item 实验现象记录与总结
+\end{itemize}
+
+
+\subsection{编码工作}
+
+\begin{itemize}
+    \item 参与prewitt\_core.v模块的代码编写和调试
+    \item 参与laplacian\_core.v模块的代码编写和调试
+    \item 参与roberts\_core.v模块的代码编写和调试
+    \item 协助修改hdmi\_bram\_sobel\_display.v的模式扩展
+    \item 参与仿真测试用例的编写
+\end{itemize}
+
+\subsection{硬件连接}
+
+\begin{itemize}
+    \item 负责ZYNQ7020开发板与HDMI显示器的连接
+    \item 负责USB串口线与PC的连接调试
+    \item 负责上板验证和现象记录
+\end{itemize}
+
+\subsection{资本投入}
+
+本次实验主要使用实验室提供的设备，个人无额外资本投入。
+
+
+\subsection{开发问题描述与解决方案}
+
+\subsubsection{Prewitt边缘幅度较低}
+
+\begin{itemize}
+    \item 问题描述：Prewitt模式下边缘图整体较暗，细节不如Sobel清晰
+    \item 解决方法：降低阈值补偿，或理解这是算法特性（无2x权重）
+\end{itemize}
+
+
+
+\subsubsection{Laplacian噪声敏感}
+
+\begin{itemize}
+    \item 问题描述：Laplacian对噪声敏感，边缘图噪点较多
+    \item 解决方法：提高阈值过滤噪声，或理解这是二阶导数的特性
+\end{itemize}
+
+
+
+\subsubsection{Roberts边缘断裂}
+
+\begin{itemize}
+    \item 问题描述：Roberts使用2×2卷积核，边缘有时不连续
+    \item 解决方法：降低阈值保留更多边缘，或理解这是小卷积核的限制
+\end{itemize}
+
+
+
+\subsubsection{模式切换命令格式}
+
+\begin{itemize}
+    \item 问题描述：新增模式4/5/6后，需要确保上位机命令格式正确
+    \item 解决方法：参考现有命令格式，扩展3-bit模式支持
+\end{itemize}
+
+
+
+\subsubsection{仿真测试覆盖}
+
+\begin{itemize}
+    \item 问题描述：需要确保新增模式的仿真测试完整性
+    \item 解决方法：新增4项算法专项测试，覆盖边界条件
+\end{itemize}
+
+
+
+\subsubsection{资源利用优化}
+
+\begin{itemize}
+    \item 问题描述：新增3个算法模块可能增加资源消耗
+    \item 解决方法：Prewitt/Roberts不消耗额外DSP，Laplacian可优化为左移
+\end{itemize}

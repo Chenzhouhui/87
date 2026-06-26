@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd.exe /c \"where xelatex 2>nul\")",
+      "Bash(cmd.exe /c \"where pdflatex 2>nul\")",
+      "Bash(cmd.exe /c \"dir /s /b C:\\\\Users\\\\chen\\\\AppData\\\\Local\\\\MiKTeX*.exe 2>nul\")",
+      "Bash(cmd.exe /c \"where /R C:\\\\\\\\Users\\\\\\\\chen xelatex.exe 2>nul\")",
+      "Bash(cmd.exe /c \"where /R \\\\\"C:\\\\\\\\Program Files\\\\\" xelatex.exe 2>nul\")",
+      "Read(//c/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/**)",
+      "Read(//c/Program Files/MiKTeX/miktex/bin/x64/**)",
+      "Read(//c/texlive/2024/bin/windows/**)",
+      "Bash(\"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/xelatex.exe\" -interaction=nonstopmode template.tex)",
+      "Bash(\"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/miktex-packages.exe\" install *)",
+      "Bash(\"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/mpm.exe\" --install zhnumber)",
+      "Bash(\"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/initexmf.exe\" --set-config-value [MPM]AutoInstall=1)",
+      "Bash(\"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/miktex-packages.exe\" --install=1)",
+      "Bash(ls \"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/\" | head -20)",
+      "Bash(ls \"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/\" | grep -i mpm)",
+      "Bash(\"C:/Users/chen/AppData/Local/Programs/MiKTeX/miktex/bin/x64/mpm.exe\" --update)",
+      "Bash(rm \"C:/Users/chen/Desktop/FPGA/87/扩展3实验报告/陈州辉/template.pdf\" 2>/dev/null; rm \"C:/Users/chen/Desktop/FPGA/87/扩展3实验报告/陈州辉/template.log\" 2>/dev/null; rm \"C:/Users/chen/Desktop/FPGA/87/扩展3实验报告/陈州辉/template.aux\" 2>/dev/null; rm \"C:/Users/chen/Desktop/FPGA/87/扩展3实验报告/陈州辉/template.toc\" 2>/dev/null)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\chen\\Desktop\\FPGA\\87\\扩展3实验报告\\陈州辉"
+    ]
+  }
+}

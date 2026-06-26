@@ -1,0 +1,54 @@
+% !Mode:: "TeX:UTF-8"
+
+\section{项目成果与反思}
+
+\subsection{成果展示}
+
+本次扩展成功在sobel\_05\_pc\_control\_display基础上新增了Prewitt、Laplacian、Roberts三种边缘检测算法，主要成果：
+
+\begin{itemize}
+    \item 新增3个算法核心模块：prewitt\_core.v、laplacian\_core.v、roberts\_core.v
+    \item hdmi\_bram\_sobel\_display.v扩展显示模式到3-bit，4种算法并行运行
+    \item 仿真模型通过所有测试，覆盖7种显示模式的正确性验证
+    \item Python golden output量化对比了4种算法差异
+    \item 上位机命令A5 5A 01 04/05/06可切换Laplacian/Prewitt/Roberts模式
+    \item 4个算法共享rgb\_to\_gray输出和BRAM scan流程，FPGA资源增量小
+    \item Vivado综合通过，时序无违例，bitstream生成成功
+    \item 上板验证成功，4种算法均可通过上位机命令实时切换
+\end{itemize}
+
+\subsection{项目评估}
+
+\subsubsection{成功之处}
+
+\begin{itemize}
+    \item 算法实现高效：复用Sobel架构，仅修改卷积权重
+    \item 并行处理设计：4个算法共享灰度转换，独立处理
+    \item 完整的验证流程：RTL仿真 + Python参考 + 上板验证
+    \item 资源利用合理：Prewitt/Roberts不消耗额外DSP资源
+    \item 模式扩展成功：从4种模式扩展到7种，上位机兼容
+    \item 所有验收项完成：仿真、资源、时序、上板演示
+\end{itemize}
+
+\subsubsection{不足之处}
+
+\begin{itemize}
+    \item 未实现左右分屏同时显示两种算法结果
+    \item 各算法的彩色边缘叠加功能未实现
+    \item 未实现多算法同时对比显示模式
+    \item Laplacian噪声敏感问题未完全解决
+\end{itemize}
+
+\subsection{个人反思}
+
+通过本次扩展任务，我深入理解了：
+
+\begin{itemize}
+    \item FPGA图像处理算法的硬件实现方法
+    \item 不同边缘检测算子（一阶/二阶、不同卷积核大小）的特性和适用场景
+    \item PS+PL协同设计的系统架构
+    \item 从仿真到上板的完整验证流程
+    \item 多算法并行处理的设计思路和资源优化方法
+\end{itemize}
+
+本项目展示了FPGA在图像处理领域的灵活性和高效性，成功实现了4种边缘检测算法的并行处理和实时切换，为后续更复杂的图像处理系统奠定了基础。
