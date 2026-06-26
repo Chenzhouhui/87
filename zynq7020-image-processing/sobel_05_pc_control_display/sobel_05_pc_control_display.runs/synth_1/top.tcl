@@ -16,57 +16,59 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7z020clg400-2
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.cache/wt [current_project]
-set_property parent.project_path D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.xpr [current_project]
+set_property webtalk.parent_dir D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.cache/wt [current_project]
+set_property parent.project_path D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths d:/Github/FPGA-course/zynq7020-image-processing/hdmi_common/repo [current_project]
-set_property ip_output_repo d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.cache/ip [current_project]
+set_property ip_repo_paths d:/deskbox/test01/05/zynq7020-image-processing/hdmi_common/repo [current_project]
+set_property ip_output_repo d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/hdmi_bram_sobel_display.v
-  D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/hdmi_pl_top.v
-  D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/hdl/ps_uart_bram_hdmi_wrapper.v
-  D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/rgb_to_gray.v
-  D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/sobel_core.v
-  D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/top.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/hdmi_bram_sobel_display.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/hdmi_pl_top.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/laplacian_core.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/prewitt_core.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/hdl/ps_uart_bram_hdmi_wrapper.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/rgb_to_gray.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/roberts_core.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/sobel_core.v
+  D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/new/top.v
 }
-read_ip -quiet D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xci
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock_board.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock_ooc.xdc]
+read_ip -quiet D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xci
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock_board.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock_ooc.xdc]
 
-add_files D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ps_uart_bram_hdmi.bd
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_processing_system7_0_0/ps_uart_bram_hdmi_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0_board.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_5/bd_2e7c_s00a2s_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_11/bd_2e7c_m00s2a_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_6/bd_2e7c_sarn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_7/bd_2e7c_srn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_8/bd_2e7c_sawn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_9/bd_2e7c_swn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_10/bd_2e7c_sbn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0_board.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_bram_ctrl_0_0/ps_uart_bram_hdmi_axi_bram_ctrl_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_blk_mem_gen_0_0/ps_uart_bram_hdmi_blk_mem_gen_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ps_uart_bram_hdmi_ooc.xdc]
+add_files D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ps_uart_bram_hdmi.bd
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_processing_system7_0_0/ps_uart_bram_hdmi_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_rst_ps7_0_50M_0/ps_uart_bram_hdmi_rst_ps7_0_50M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_5/bd_2e7c_s00a2s_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_11/bd_2e7c_m00s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_6/bd_2e7c_sarn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_7/bd_2e7c_srn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_8/bd_2e7c_sawn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_9/bd_2e7c_swn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_10/bd_2e7c_sbn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/bd_0/ip/ip_1/bd_2e7c_psr_aclk_0.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_smc_0/ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_axi_bram_ctrl_0_0/ps_uart_bram_hdmi_axi_bram_ctrl_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ip/ps_uart_bram_hdmi_blk_mem_gen_0_0/ps_uart_bram_hdmi_blk_mem_gen_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ps_uart_bram_hdmi_ooc.xdc]
 
-read_ip -quiet D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/rgb2dvi_0.xci
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi_clocks.xdc]
+read_ip -quiet D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/rgb2dvi_0.xci
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/src/rgb2dvi_clocks.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -76,8 +78,8 @@ set_property used_in_implementation false [get_files -all d:/Github/FPGA-course/
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc
-set_property used_in_implementation false [get_files D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc]
+read_xdc D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc
+set_property used_in_implementation false [get_files D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

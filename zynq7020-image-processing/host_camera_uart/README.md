@@ -32,15 +32,15 @@ flowchart TB
 
     classDef root fill:#111827,stroke:#111827,color:#ffffff,stroke-width:2px;
     classDef gui fill:#dcfce7,stroke:#16a34a,color:#0f172a,stroke-width:2px;
-    classDef cli fill:#e0f2fe,stroke:#0284c7,color:#0f172a,stroke-width:2px;
+.\build_exe.ps1
     classDef dep fill:#ede9fe,stroke:#7c3aed,color:#0f172a,stroke-width:2px;
     class root root;
     class gui gui;
-    class cli cli;
+.\build_exe.ps1 -Clean
     class req dep;
 ```
 
-## 2. 运行前提
+### 13.1 GUI 提示缺少 cv2 或 serial
 
 运行 PC 端发送工具前，需要满足以下条件：
 
@@ -426,9 +426,32 @@ conda run -n fpga python -c "import numpy as np; from camera_uart_sender import 
 55 aa 80 00 48 00 18
 ```
 
-## 12. 常见问题
+## 12. 打包成 EXE
 
-### 12.1 GUI 提示缺少 cv2 或 serial
+如果你想把上位机做成 Windows 可执行文件，可以直接运行本目录下的打包脚本：
+
+```powershell
+cd D:\deskbox\test01\05_fpga_1\zynq7020-image-processing\host_camera_uart
+.build_exe.ps1
+```
+
+默认会生成单文件 GUI 程序，输出位置是：
+
+```text
+host_camera_uart\dist\camera_uart_gui.exe
+```
+
+如果想先清理旧产物再打包，可以加 `-Clean`：
+
+```powershell
+.build_exe.ps1 -Clean
+```
+
+打包脚本会自动使用当前工作区的 Python 环境安装 PyInstaller，并把 `camera_uart_gui.py` 作为入口。生成的 exe 运行时仍然需要连接摄像头、串口和板端程序，打包不会替代板端的 `PS` 程序。
+
+## 13. 常见问题
+
+### 13.1 GUI 提示缺少 cv2 或 serial
 
 说明当前 Python 环境没有安装依赖，或者没有进入 `fpga` 环境。
 
@@ -440,7 +463,7 @@ pip install -r requirements.txt
 python camera_uart_gui.py
 ```
 
-### 12.2 找不到 COM 口
+### 13.2 找不到 COM 口
 
 检查：
 
@@ -451,7 +474,7 @@ python camera_uart_gui.py
 是否点击了 GUI 中的 Refresh
 ```
 
-### 12.3 串口被占用
+### 13.3 串口被占用
 
 如果出现 `PermissionError` 或 `Access is denied`，通常是串口被其他程序占用。
 
@@ -463,7 +486,7 @@ python camera_uart_gui.py
 重新插拔 USB 串口线
 ```
 
-### 12.4 PS 端一直打印 waiting for frame header
+### 13.4 PS 端一直打印 waiting for frame header
 
 这说明开发板端程序正在等待 PC 发送数据。
 
@@ -476,7 +499,7 @@ baud 是否为 115200
 串口调试助手是否已经关闭
 ```
 
-### 12.5 HDMI 画面不更新或更新很慢
+### 13.5 HDMI 画面不更新或更新很慢
 
 检查：
 
@@ -489,7 +512,7 @@ PS 端是否报 frame error
 
 `115200` 波特率下画面本来就会比较慢。建议第一次实验使用 `FPS = 0.2`。
 
-### 12.6 PS 端打印 frame error
+### 13.6 PS 端打印 frame error
 
 常见原因：
 
@@ -509,11 +532,11 @@ line delay 太小
 检查 USB 串口连接
 ```
 
-### 12.7 多图或视频发送结束后自动停止
+### 13.7 多图或视频发送结束后自动停止
 
 这是正常行为。多图和视频默认发送到末尾后停止，如果希望持续播放，需要勾选 GUI 中的 `Loop file input`，或在命令行中增加 `--loop`。
 
-### 12.8 视频文件打不开
+### 13.8 视频文件打不开
 
 检查：
 
@@ -524,7 +547,7 @@ OpenCV 是否支持当前视频编码
 优先使用常见 H.264 MP4 文件
 ```
 
-### 12.9 摄像头打不开
+### 13.9 摄像头打不开
 
 检查：
 

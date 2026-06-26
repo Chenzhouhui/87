@@ -61,107 +61,12 @@ proc step_failed { step } {
 }
 
 
-start_step init_design
-set ACTIVE_STEP init_design
-set rc [catch {
-  create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
-  create_project -in_memory -part xc7z020clg400-2
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.cache/wt [current_project]
-  set_property parent.project_path D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.xpr [current_project]
-  set_property ip_repo_paths D:/Github/FPGA-course/zynq7020-image-processing/hdmi_common/repo [current_project]
-  set_property ip_output_repo D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/synth_1/top.dcp
-  set_msg_config -source 4 -id {BD 41-1661} -limit 0
-  set_param project.isImplRun true
-  read_ip -quiet D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xci
-  add_files D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/bd/ps_uart_bram_hdmi/ps_uart_bram_hdmi.bd
-  read_ip -quiet D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/rgb2dvi_0/rgb2dvi_0.xci
-  set_param project.isImplRun false
-  read_xdc D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc
-  set_param project.isImplRun true
-  link_design -top top -part xc7z020clg400-2
-  set_param project.isImplRun false
-  write_hwdef -force -file top.hwdef
-  close_msg_db -file init_design.pb
-} RESULT]
-if {$rc} {
-  step_failed init_design
-  return -code error $RESULT
-} else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force top_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-  implement_debug_core 
-  place_design 
-  write_checkpoint -force top_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file top_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file top_utilization_placed.rpt -pb top_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file top_control_sets_placed.rpt"
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-  route_design 
-  write_checkpoint -force top_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file top_route_status.rpt -pb top_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file top_timing_summary_routed.rpt -rpx top_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file top_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file top_clock_utilization_routed.rpt"
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-  write_checkpoint -force top_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
-  unset ACTIVE_STEP 
-}
-
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  open_checkpoint top_routed.dcp
+  set_property webtalk.parent_dir D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.cache/wt [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
   catch { write_mem_info -force top.mmi }
   catch { write_bmm -force top_bd.bmm }

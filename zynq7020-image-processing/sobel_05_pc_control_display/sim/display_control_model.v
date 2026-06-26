@@ -1,5 +1,5 @@
 module display_control_model(
-    input [1:0] display_mode,
+    input [2:0] display_mode,
     input [7:0] threshold,
     input overlay_enable,
     input [23:0] rgb_pixel,
@@ -7,10 +7,11 @@ module display_control_model(
     output reg [23:0] rgb_out
 );
 
-localparam MODE_ORIGINAL = 2'd0;
-localparam MODE_GRAY     = 2'd1;
-localparam MODE_EDGE     = 2'd2;
-localparam MODE_OVERLAY  = 2'd3;
+localparam MODE_ORIGINAL  = 3'd0;
+localparam MODE_GRAY      = 3'd1;
+localparam MODE_EDGE      = 3'd2;
+localparam MODE_OVERLAY   = 3'd3;
+localparam MODE_LAPLACIAN = 3'd4;
 
 wire [15:0] gray_sum;
 wire [7:0] gray;
@@ -31,6 +32,10 @@ always @(*) begin
         end
 
         MODE_EDGE: begin
+            rgb_out = edge_on ? 24'hffffff : 24'h000000;
+        end
+
+        MODE_LAPLACIAN: begin
             rgb_out = edge_on ? 24'hffffff : 24'h000000;
         end
 

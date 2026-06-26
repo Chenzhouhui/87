@@ -53,6 +53,28 @@ static u8 display_mode = 2U;
 static u8 threshold_value = 80U;
 static u8 overlay_enable = 0U;
 
+static const char *display_mode_name(u8 mode)
+{
+    switch (mode) {
+    case 0U:
+        return "original";
+    case 1U:
+        return "gray";
+    case 2U:
+        return "sobel";
+    case 3U:
+        return "overlay";
+    case 4U:
+        return "laplacian";
+    case 5U:
+        return "prewitt";
+    case 6U:
+        return "roberts";
+    default:
+        return "reserved";
+    }
+}
+
 static int uart_recv_byte_timeout(u8 *byte_value, u32 timeout_ms)
 {
     XTime start_time;
@@ -102,8 +124,9 @@ static void control_write_defaults(void)
 
 static void control_print_state(void)
 {
-    xil_printf("control: mode=%d threshold=%d overlay=%d\r\n",
+    xil_printf("control: mode=%d(%s) threshold=%d overlay=%d\r\n",
                (u32)display_mode,
+               display_mode_name(display_mode),
                (u32)threshold_value,
                (u32)overlay_enable);
 }
@@ -122,7 +145,7 @@ static int handle_control_packet(void)
 
     switch (cmd) {
     case CTRL_CMD_MODE:
-        display_mode = value & 0x03U;
+        display_mode = value & 0x07U;  // 3-bit: 0=orig 1=gray 2=sobel 3=overlay 4=laplacian 5=prewitt 6=roberts
         Xil_Out32(CTRL_MODE_ADDR, (u32)display_mode);
         break;
 
@@ -313,7 +336,7 @@ int main(void)
                (u32)UART_BAUD_RATE,
                (u32)IMG_WIDTH,
                (u32)IMG_HEIGHT);
-    xil_printf("control frame: a5 5a cmd value, cmd 1=mode 2=threshold 3=overlay\r\n");
+    xil_printf("control frame: a5 5a cmd value, cmd 1(0=orig 1=gray 2=sobel 3=overlay 4=laplacian 5=prewitt 6=roberts) 2=threshold 3=overlay\r\n");
 
     fill_test_pattern();
     control_write_defaults();

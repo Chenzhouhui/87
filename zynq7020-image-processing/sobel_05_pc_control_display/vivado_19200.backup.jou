@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jun 25 16:52:40 2026
+# Process ID: 19200
+# Current directory: D:/桌面映射盒子/test01/05/zynq7020-image-processing/sobel_05_pc_control_display
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6944 D:\桌面映射盒子\test01\05\zynq7020-image-processing\sobel_05_pc_control_display\sobel_05_pc_control_display.xpr
+# Log file: D:/桌面映射盒子/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/vivado.log
+# Journal file: D:/桌面映射盒子/test01/05/zynq7020-image-processing/sobel_05_pc_control_display\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/桌面映射盒子/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+wait_on_run synth_1

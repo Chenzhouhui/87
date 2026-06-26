@@ -17,6 +17,17 @@ CONTROL_MODE = 0x01
 CONTROL_THRESHOLD = 0x02
 CONTROL_OVERLAY = 0x03
 
+MODE_VALUES = {
+    "original": 0,
+    "gray": 1,
+    "edge": 2,
+    "sobel": 2,
+    "overlay": 3,
+    "laplacian": 4,
+    "prewitt": 5,
+    "roberts": 6,
+}
+
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".bmp"}
 VIDEO_EXTENSIONS = {".mp4", ".avi", ".mov", ".mkv", ".wmv"}
 
@@ -181,8 +192,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--line-delay", type=float, default=0.0, help="Delay after each line, in seconds")
     parser.add_argument(
         "--mode",
-        choices=("original", "gray", "edge", "overlay"),
-        help="sobel_05 display mode control command",
+        choices=("original", "gray", "edge", "sobel", "overlay", "laplacian", "prewitt", "roberts"),
+        help="sobel_05 display mode control command (sobel=edge detection, laplacian/prewitt/roberts added)",
     )
     parser.add_argument("--threshold", type=int, help="sobel_05 threshold control command, 0..255")
     parser.add_argument(
@@ -245,14 +256,8 @@ def send_requested_controls(
     threshold: int | None = None,
     overlay: str | None = None,
 ) -> None:
-    mode_values = {
-        "original": 0,
-        "gray": 1,
-        "edge": 2,
-        "overlay": 3,
-    }
     if mode is not None:
-        send_control_command(ser, CONTROL_MODE, mode_values[mode])
+        send_control_command(ser, CONTROL_MODE, MODE_VALUES[mode])
     if threshold is not None:
         if not 0 <= threshold <= 255:
             raise ValueError("--threshold must be in range 0..255")

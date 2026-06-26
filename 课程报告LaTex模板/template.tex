@@ -1,0 +1,88 @@
+% !TeX program = xelatex
+% FPGA课程设计报告模板
+
+\documentclass[12pt, a4paper]{ctexart}
+\usepackage{GDUTReport}
+
+% 页面布局设置
+\setstretch{1.5} % 设置全局行距为1.5倍
+
+% 字体设置
+\setmainfont{Times New Roman} % 英文正文为Times New Roman
+
+% 封面内容
+{
+    % 课程名称
+    \title{FPGA课程设计报告}
+    % 报告标题
+    \subtitle{基于FPGA的数字系统设计}
+    % 姓名
+    \name{阿Q}
+    % 学号
+    \thenumber{12345678}
+    % 专业
+    \major{微电子科学与工程}
+    % 班级
+    \class{微电子X班}
+    % 队名
+    \team{量子摸鱼科技}
+    % 指导老师
+    \teacher{周贤中}
+}
+
+\begin{document}
+
+% 封面
+\pagenumbering{gobble}
+\makecover
+
+% 前言部分
+% \frontmatter
+
+% 摘要
+\newpage
+\begin{abstract}
+本文介绍了基于FPGA的数字系统设计课程项目。
+利用Verilog HDL硬件描述语言，设计并实现了一个多功能数字时钟系统。
+系统包含时间显示、闹钟功能、秒表计时等模块，
+通过Xilinx Vivado工具进行综合与实现，并在Basys3开发板上完成验证。
+项目展示了FPGA在数字系统设计中的灵活性和高效性。
+\par
+\textbf{关键词：} FPGA; Verilog; 数字时钟; 数字系统设计
+\end{abstract}
+
+% 目录
+\tableofcontents
+\clearpage
+
+% 正文
+\pagenumbering{arabic}
+\setcounter{page}{1} % 让页码从正文开始编号
+% \mainmatter
+
+\include{body/chapter1}
+\include{body/chapter2}
+\include{body/chapter3}
+\include{body/chapter4}
+\include{body/chapter5}
+\include{body/chapter6}
+\include{body/chapter7}
+\include{body/chapter8}
+
+% 附录
+\appendix
+\section{\centering 设计图纸}
+\subsection*{电路原理图}
+完整电路原理图见附件。
+
+\section{\centering 代码清单}
+完整Verilog源代码见随附文件。
+
+\addcontentsline{toc}{section}{参考文献}
+\begin{thebibliography}{99}
+\bibitem{ref1} 王金明. 数字系统设计与Verilog HDL(第7版). 电子工业出版社, 2019.
+\bibitem{ref2} Xilinx. Basys3 FPGA Board Reference Manual, 2021.
+\bibitem{ref3} Chu, Pong P. FPGA Prototyping by Verilog Examples. Wiley, 2008.
+\end{thebibliography}
+
+\end{document}

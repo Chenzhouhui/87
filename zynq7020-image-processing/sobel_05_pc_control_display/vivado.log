@@ -2,27 +2,24 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Jun 18 11:46:42 2026
-# Process ID: 13984
-# Current directory: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5296 C:\Users\Lenovo\Desktop\zynq7020-image-processing\sobel_05_pc_control_display\sobel_05_pc_control_display.xpr
-# Log file: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/vivado.log
-# Journal file: C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display\vivado.jou
+# Start of session at: Fri Jun 26 13:32:45 2026
+# Process ID: 9392
+# Current directory: D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24624 D:\deskbox\test01\05_fpga_1\zynq7020-image-processing\sobel_05_pc_control_display\sobel_05_pc_control_display.xpr
+# Log file: D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/vivado.log
+# Journal file: D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display\vivado.jou
 #-----------------------------------------------------------
-start_gui
-open_project C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.xpr
-INFO: [Project 1-313] Project file moved from 'D:/Github/FPGA-course/zynq7020-image-processing/sobel_05_pc_control_display' since last save.
-Scanning sources...
+sstart_guioopen_project D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.xprIINFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display'IINFO: [Project 1-313] Project file moved from 'D:/deskbox/test01/05/zynq7020-image-processing/sobel_05_pc_control_display' since last save.Scanning sources...
 Finished scanning sources
-WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'C:/Users/Lenovo/Desktop/zynq7020-image-processing/hdmi_common/repo', nor could it be found using path 'D:/Github/FPGA-course/zynq7020-image-processing/hdmi_common/repo'.
+WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/hdmi_common/repo', nor could it be found using path 'D:/deskbox/test01/05/zynq7020-image-processing/hdmi_common/repo'.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Lenovo/Desktop/zynq7020-image-processing/hdmi_common/repo'; Can't find the specified path.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/deskbox/test01/05_fpga_1/zynq7020-image-processing/hdmi_common/repo'; Can't find the specified path.
 If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
-WARNING: [IP_Flow 19-2162] IP 'rgb2dvi_0' is locked:
+IINFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivido/Xilinx/Vivado/2017.4/data/ip'.WARNING: [IP_Flow 19-2162] IP 'rgb2dvi_0' is locked:
 * IP definition 'rgb2dvi (1.3)' for IP 'rgb2dvi_0' (customized with software release 2017.4) was not found in the IP Catalog.
 Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
-open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 907.875 ; gain = 164.512
+open_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 843.535 ; gain = 104.562
 update_compile_order -fileset sources_1
 open_hw
 connect_hw_server
@@ -37,7 +34,7 @@ INFO: [Labtools 27-2221] Launch Output:
 
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
-set_property PROGRAM.FILE {C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top.bit} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top.bit} [get_hw_devices xc7z020_1]
 current_hw_device [get_hw_devices xc7z020_1]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
 INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
@@ -48,7 +45,7 @@ Resolution:
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
 set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
-set_property PROGRAM.FILE {C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top.bit} [get_hw_devices xc7z020_1]
+set_property PROGRAM.FILE {D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top.bit} [get_hw_devices xc7z020_1]
 program_hw_devices [get_hw_devices xc7z020_1]
 INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
@@ -58,68 +55,49 @@ Resolution:
 1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
 2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
 For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-launch_sdk -workspace C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk -hwspec C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/top.hdf
+launch_sdk -workspace D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk -hwspec D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/top.hdf
 INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk -hwspec C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/top.hdf
-INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
-ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210512180081
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
-WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
-INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
-WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
-set_property PROBES.FILE {} [get_hw_devices xc7z020_1]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7z020_1]
-set_property PROGRAM.FILE {C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/impl_1/top.bit} [get_hw_devices xc7z020_1]
-program_hw_devices [get_hw_devices xc7z020_1]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7z020_1] 0]
-INFO: [Labtools 27-1434] Device xc7z020 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it.
-WARNING: [Labtools 27-3361] The debug hub core was not detected.
-Resolution: 
-1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
-2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
-For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
-launch_sdk -workspace C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk -hwspec C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/top.hdf
-INFO: [Vivado 12-393] Launching SDK...
-INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk -hwspec C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/top.hdf
+INFO: [Vivado 12-417] Running xsdk -workspace D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk -hwspec D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/top.hdf
 INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
 open_run impl_1
-INFO: [Netlist 29-17] Analyzing 2381 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-17] Analyzing 6818 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2017.4
 INFO: [Device 21-403] Loading part xc7z020clg400-2
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top_board.xdc]
-Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top_board.xdc]
-Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top_early.xdc]
-INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
-INFO: [Timing 38-2] Deriving generated clocks [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
-get_clocks: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2508.379 ; gain = 577.461
-Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top_early.xdc]
-Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top.xdc]
-WARNING: [Constraints 18-619] A clock with name 'sys_clk' already exists, overwriting the previous clock with the same name. [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc:3]
-Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top.xdc]
-Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top_late.xdc]
-Finished Parsing XDC File [C:/Users/Lenovo/Desktop/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-13984-PC039/dcp0/top_late.xdc]
+Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top_board.xdc]
+Finished Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top_board.xdc]
+Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top_early.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/sources_1/ip/video_clock/video_clock.xdc:57]
+get_clocks: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 2588.633 ; gain = 614.777
+Finished Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top_early.xdc]
+Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top.xdc]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk' already exists, overwriting the previous clock with the same name. [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.srcs/constrs_1/new/hdmi_out_test.xdc:3]
+Finished Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top.xdc]
+Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top_late.xdc]
+Finished Parsing XDC File [D:/deskbox/test01/05_fpga_1/zynq7020-image-processing/sobel_05_pc_control_display/.Xil/Vivado-9392-LAPTOP-PN5J37V8/dcp0/top_late.xdc]
 Reading XDEF placement.
 Reading placer database...
 Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2542.543 ; gain = 33.012
-Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2542.543 ; gain = 33.012
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:03 . Memory (MB): peak = 2664.883 ; gain = 75.523
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:03 . Memory (MB): peak = 2664.883 ; gain = 75.523
 Generating merged BMM file for the design top 'top'...
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1179 instances were transformed.
+  A total of 3483 instances were transformed.
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 27 instances
-  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 1152 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 2304 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 1152 instances
 
-open_run: Time (s): cpu = 00:00:32 ; elapsed = 00:00:27 . Memory (MB): peak = 2639.688 ; gain = 1140.414
+open_run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:25 . Memory (MB): peak = 2737.219 ; gain = 1278.832
 report_utilization -name utilization_1
-report_utilization: Time (s): cpu = 00:00:09 ; elapsed = 00:00:03 . Memory (MB): peak = 2845.953 ; gain = 146.754
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 3202.070 ; gain = 18.961
 report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
 CRITICAL WARNING: [Timing 38-249] Generated clock hdmi_pl_top_i/rgb2dvi_m0/U0/SerialClk has no logical paths from master clock clk_out1_video_clock.
 Resolution: Review the path between the master clock and the generated clock with the schematic viewer and correct the -source option. If it is correct and the master clock does not have a timing path to the generated clock, define the generated clock as a primary clock by using create_clock.
+report_timing_summary: Time (s): cpu = 00:00:02 ; elapsed = 00:00:07 . Memory (MB): peak = 3314.578 ; gain = 98.199
 exit
-INFO: [Common 17-206] Exiting Vivado at Thu Jun 18 12:18:32 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 26 14:06:51 2026...

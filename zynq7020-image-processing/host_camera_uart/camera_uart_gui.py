@@ -20,6 +20,7 @@ except ImportError as exc:
 
 DEFAULT_WIDTH = 128
 DEFAULT_HEIGHT = 72
+DISPLAY_MODE_VALUES = ("original", "gray", "sobel", "overlay", "laplacian", "prewitt", "roberts")
 
 
 class CameraUartGui(tk.Tk):
@@ -54,7 +55,7 @@ class CameraUartGui(tk.Tk):
         self.preview_var = tk.BooleanVar(value=True)
         self.once_var = tk.BooleanVar(value=False)
         self.loop_var = tk.BooleanVar(value=False)
-        self.control_mode_var = tk.StringVar(value="edge")
+        self.control_mode_var = tk.StringVar(value="sobel")
         self.control_threshold_var = tk.StringVar(value="80")
         self.control_overlay_var = tk.BooleanVar(value=False)
         self.status_var = tk.StringVar(value="Idle")
@@ -175,7 +176,7 @@ class CameraUartGui(tk.Tk):
             control_frame,
             textvariable=self.control_mode_var,
             width=12,
-            values=("original", "gray", "edge", "overlay"),
+            values=DISPLAY_MODE_VALUES,
             state="readonly",
         )
         self.control_mode_combo.grid(row=0, column=1, sticky="w", pady=4)

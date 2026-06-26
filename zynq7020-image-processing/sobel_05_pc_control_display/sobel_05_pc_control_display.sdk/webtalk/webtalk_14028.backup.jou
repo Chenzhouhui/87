@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# 
+# Start of session at: Mon Jun 22 17:31:48 2026
+# Process ID: 14028
+# Current directory: C:/Users/yu/Desktop/fpga/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: C:/Users/yu/Desktop/fpga/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/webtalk/webtalk.log
+# Journal file: C:/Users/yu/Desktop/fpga/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

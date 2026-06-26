@@ -122,7 +122,7 @@ static int handle_control_packet(void)
 
     switch (cmd) {
     case CTRL_CMD_MODE:
-        display_mode = value & 0x03U;
+        display_mode = value & 0x07U;  // 3-bit: 0=orig 1=gray 2=sobel 3=overlay 4=laplacian
         Xil_Out32(CTRL_MODE_ADDR, (u32)display_mode);
         break;
 
@@ -313,7 +313,7 @@ int main(void)
                (u32)UART_BAUD_RATE,
                (u32)IMG_WIDTH,
                (u32)IMG_HEIGHT);
-    xil_printf("control frame: a5 5a cmd value, cmd 1=mode 2=threshold 3=overlay\r\n");
+    xil_printf("control frame: a5 5a cmd value, cmd 1(0-3,4=laplacian) 2=threshold 3=overlay\r\n");
 
     fill_test_pattern();
     control_write_defaults();

@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
-  29464	   1172	  22656	  53292	   d02c	ps_uart_control_bram_app.elf
+  29476	   1172	  22656	  53304	   d038	ps_uart_control_bram_app.elf

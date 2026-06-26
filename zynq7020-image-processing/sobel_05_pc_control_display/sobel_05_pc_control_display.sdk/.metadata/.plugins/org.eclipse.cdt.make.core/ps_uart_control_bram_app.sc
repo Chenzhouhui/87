@@ -2,6 +2,14 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="xilinx.gnu.armv7.exe.debug.1629145201;xilinx.gnu.armv7.exe.debug.1629145201.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
 <includePath path="c:\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
 <includePath path="c:\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
 <includePath path="c:\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>
@@ -708,6 +716,19 @@
 </instance>
 <instance id="xilinx.gnu.armv7.exe.debug.1629145201;xilinx.gnu.armv7.exe.debug.1629145201.;xilinx.gnu.armv7.c.toolchain.compiler.debug.1809329598;xilinx.gnu.armv7.c.compiler.input.607356798">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="#undef __ARM_FEATURE_SAT" removed="true"/>
+<includePath path="#undef __ARM_FEATURE_CRYPTO" removed="true"/>
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
+<includePath path="#undef __ARM_FEATURE_UNALIGNED" removed="true"/>
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
+<includePath path="#undef __ARM_FEATURE_QRDMX" removed="true"/>
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>
+<includePath path="e:\vivido\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
+<includePath path="#undef __ARM_FEATURE_LDREX" removed="true"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>
+<includePath path="e:\tool\industrialsoftware\vivado2017.4\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../arm-none-eabi/libc/usr/include"/>
 <includePath path="c:\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include"/>
 <includePath path="c:\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/include-fixed"/>
 <includePath path="c:\xilinx\sdk\2017.4\gnu\aarch32\nt\gcc-arm-none-eabi\bin\../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/include"/>

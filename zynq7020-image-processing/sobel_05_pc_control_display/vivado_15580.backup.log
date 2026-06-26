@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jun 25 16:58:04 2026
+# Process ID: 15580
+# Current directory: D:/×ÀÃæÓ³ÉäºÐ×Ó/test01/05/zynq7020-image-processing/sobel_05_pc_control_display
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent26436 D:\×ÀÃæÓ³ÉäºÐ×Ó\test01\05\zynq7020-image-processing\sobel_05_pc_control_display\sobel_05_pc_control_display.xpr
+# Log file: D:/×ÀÃæÓ³ÉäºÐ×Ó/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/vivado.log
+# Journal file: D:/×ÀÃæÓ³ÉäºÐ×Ó/test01/05/zynq7020-image-processing/sobel_05_pc_control_display\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/×ÀÃæÓ³ÉäºÐ×Ó/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'D:/×ÀÃæÓ³ÉäºÐ×Ó/test01/05/zynq7020-image-processing/hdmi_common/repo'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/×ÀÃæÓ³ÉäºÐ×Ó/test01/05/zynq7020-image-processing/hdmi_common/repo'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/vivido/Xilinx/Vivado/2017.4/data/ip'.
+WARNING: [IP_Flow 19-2162] IP 'rgb2dvi_0' is locked:
+* IP definition 'rgb2dvi (1.3)' for IP 'rgb2dvi_0' (customized with software release 2017.4) was not found in the IP Catalog.
+Please select 'Report IP Status' from the 'Tools/Report' menu or run Tcl command 'report_ip_status' for more information.
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+[Thu Jun 25 16:58:17 2026] Launched synth_1...
+Run output will be captured here: D:/×ÀÃæÓ³ÉäºÐ×Ó/test01/05/zynq7020-image-processing/sobel_05_pc_control_display/sobel_05_pc_control_display.runs/synth_1/runme.log
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 25 16:59:35 2026...

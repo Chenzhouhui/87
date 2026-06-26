@@ -36,10 +36,14 @@ localparam CTRL_MODE_ADDR      = 32'h0000_9000;
 localparam CTRL_THRESHOLD_ADDR = 32'h0000_9004;
 localparam CTRL_OVERLAY_ADDR   = 32'h0000_9008;
 
-localparam MODE_ORIGINAL = 2'd0;
-localparam MODE_GRAY     = 2'd1;
-localparam MODE_EDGE     = 2'd2;
-localparam MODE_OVERLAY  = 2'd3;
+// Extended to 3-bit for additional algorithms
+localparam MODE_ORIGINAL  = 3'd0;
+localparam MODE_GRAY      = 3'd1;
+localparam MODE_EDGE      = 3'd2;
+localparam MODE_OVERLAY   = 3'd3;
+localparam MODE_LAPLACIAN = 3'd4;
+localparam MODE_PREWITT   = 3'd5;
+localparam MODE_ROBERTS   = 3'd6;
 
 localparam SCAN_IDLE              = 4'd0;
 localparam SCAN_CTRL_MODE_REQ     = 4'd1;
@@ -77,14 +81,17 @@ reg [6:0] scan_y_d1;
 reg [6:0] scan_x_d2;
 reg [6:0] scan_y_d2;
 reg scan_frame_start;
-reg sobel_done;
+reg frame_ready;   // renamed from sobel_done: gates HDMI output for all modes
 
-reg [1:0] display_mode;
+reg [2:0] display_mode;  // extended from 2-bit to 3-bit
 reg [7:0] threshold;
 reg overlay_enable;
 
 (* ram_style = "block" *) reg [23:0] rgb_mem [0:9215];
-(* ram_style = "block" *) reg [7:0] edge_mem [0:9215];
+(* ram_style = "block" *) reg [7:0] edge_mem [0:9215];          // Sobel edge buffer
+(* ram_style = "block" *) reg [7:0] edge_mem_laplace [0:9215]; // Laplacian edge buffer
+(* ram_style = "block" *) reg [7:0] edge_mem_prewitt [0:9215];  // Prewitt edge buffer
+(* ram_style = "block" *) reg [7:0] edge_mem_roberts [0:9215];  // Roberts edge buffer
 
 wire h_active;
 wire v_active;
@@ -103,6 +110,7 @@ wire scan_issue;
 wire scan_last;
 wire ctrl_read_active;
 
+// Sobel pipeline signals
 wire gray_valid;
 wire [7:0] gray;
 wire [15:0] gray_x;
@@ -113,6 +121,30 @@ wire [15:0] edge_x;
 wire [15:0] edge_y;
 wire edge_frame_done;
 wire [13:0] edge_wr_addr;
+
+// Laplacian pipeline signals (shares gray input with Sobel)
+wire laplace_edge_valid;
+wire [7:0] laplace_edge_data;
+wire [15:0] laplace_edge_x;
+wire [15:0] laplace_edge_y;
+wire laplace_frame_done;
+wire [13:0] laplace_wr_addr;
+
+// Prewitt pipeline signals
+wire prewitt_edge_valid;
+wire [7:0] prewitt_edge_data;
+wire [15:0] prewitt_edge_x;
+wire [15:0] prewitt_edge_y;
+wire prewitt_frame_done;
+wire [13:0] prewitt_wr_addr;
+
+// Roberts pipeline signals
+wire roberts_edge_valid;
+wire [7:0] roberts_edge_data;
+wire [15:0] roberts_edge_x;
+wire [15:0] roberts_edge_y;
+wire roberts_frame_done;
+wire [13:0] roberts_wr_addr;
 
 wire [15:0] display_gray_sum;
 wire [7:0] display_gray;
@@ -142,13 +174,16 @@ assign scan_issue = (scan_state == SCAN_RUN);
 assign scan_last = (scan_x == 7'd127) && (scan_y == 7'd71);
 assign ctrl_read_active = (scan_state >= SCAN_CTRL_MODE_REQ) && (scan_state <= SCAN_CTRL_OVL_WAIT2);
 assign edge_wr_addr = {edge_y[6:0], 7'b0} + {7'd0, edge_x[6:0]};
+assign laplace_wr_addr = {laplace_edge_y[6:0], 7'b0} + {7'd0, laplace_edge_x[6:0]};
+assign prewitt_wr_addr = {prewitt_edge_y[6:0], 7'b0} + {7'd0, prewitt_edge_x[6:0]};
+assign roberts_wr_addr = {roberts_edge_y[6:0], 7'b0} + {7'd0, roberts_edge_x[6:0]};
 
 assign hs = hs_reg_d0;
 assign vs = vs_reg_d0;
 assign de = de_reg_d0;
-assign rgb_r = (de_reg_d0 && sobel_done) ? out_r : 8'h00;
-assign rgb_g = (de_reg_d0 && sobel_done) ? out_g : 8'h00;
-assign rgb_b = (de_reg_d0 && sobel_done) ? out_b : 8'h00;
+assign rgb_r = (de_reg_d0 && frame_ready) ? out_r : 8'h00;
+assign rgb_g = (de_reg_d0 && frame_ready) ? out_g : 8'h00;
+assign rgb_b = (de_reg_d0 && frame_ready) ? out_b : 8'h00;
 
 assign bram_we = 4'b0000;
 assign bram_din = 32'd0;
@@ -179,6 +214,24 @@ always @(*) begin
             out_b = edge_on ? 8'hff : 8'h00;
         end
 
+        MODE_LAPLACIAN: begin
+            out_r = edge_on ? 8'hff : 8'h00;
+            out_g = edge_on ? 8'hff : 8'h00;
+            out_b = edge_on ? 8'hff : 8'h00;
+        end
+
+        MODE_PREWITT: begin
+            out_r = edge_on ? 8'hff : 8'h00;
+            out_g = edge_on ? 8'hff : 8'h00;
+            out_b = edge_on ? 8'hff : 8'h00;
+        end
+
+        MODE_ROBERTS: begin
+            out_r = edge_on ? 8'hff : 8'h00;
+            out_g = edge_on ? 8'hff : 8'h00;
+            out_b = edge_on ? 8'hff : 8'h00;
+        end
+
         default: begin
             out_r = rgb_pixel[23:16];
             out_g = rgb_pixel[15:8];
@@ -186,13 +239,17 @@ always @(*) begin
         end
     endcase
 
-    if ((display_mode != MODE_EDGE) && overlay_active && edge_on) begin
-        out_r = 8'hff;
-        out_g = 8'h20;
-        out_b = 8'h20;
+    // Overlay red edges only on base display modes
+    if ((display_mode == MODE_ORIGINAL) || (display_mode == MODE_GRAY) || (display_mode == MODE_OVERLAY)) begin
+        if (overlay_active && edge_on) begin
+            out_r = 8'hff;
+            out_g = 8'h20;
+            out_b = 8'h20;
+        end
     end
 end
 
+// RGB-to-Gray converter (shared by both Sobel and Laplacian)
 rgb_to_gray u_rgb_to_gray (
     .clk(clk),
     .rst_n(~rst),
@@ -208,6 +265,7 @@ rgb_to_gray u_rgb_to_gray (
     .gray_y(gray_y)
 );
 
+// Sobel edge detector
 sobel_core #(
     .WIDTH(IMG_WIDTH),
     .HEIGHT(IMG_HEIGHT)
@@ -226,6 +284,64 @@ sobel_core #(
     .edge_frame_done(edge_frame_done)
 );
 
+// Laplacian edge detector (runs in parallel with Sobel)
+laplacian_core #(
+    .WIDTH(IMG_WIDTH),
+    .HEIGHT(IMG_HEIGHT)
+) u_laplacian_core (
+    .clk(clk),
+    .rst_n(~rst),
+    .frame_start(scan_frame_start),
+    .gray_valid(gray_valid),
+    .gray(gray),
+    .gray_x(gray_x),
+    .gray_y(gray_y),
+    .edge_valid(laplace_edge_valid),
+    .edge_data(laplace_edge_data),
+    .edge_x(laplace_edge_x),
+    .edge_y(laplace_edge_y),
+    .edge_frame_done(laplace_frame_done)
+);
+
+// Prewitt edge detector (runs in parallel with Sobel)
+prewitt_core #(
+    .WIDTH(IMG_WIDTH),
+    .HEIGHT(IMG_HEIGHT)
+) u_prewitt_core (
+    .clk(clk),
+    .rst_n(~rst),
+    .frame_start(scan_frame_start),
+    .gray_valid(gray_valid),
+    .gray(gray),
+    .gray_x(gray_x),
+    .gray_y(gray_y),
+    .edge_valid(prewitt_edge_valid),
+    .edge_data(prewitt_edge_data),
+    .edge_x(prewitt_edge_x),
+    .edge_y(prewitt_edge_y),
+    .edge_frame_done(prewitt_frame_done)
+);
+
+// Roberts edge detector (runs in parallel with Sobel)
+roberts_core #(
+    .WIDTH(IMG_WIDTH),
+    .HEIGHT(IMG_HEIGHT)
+) u_roberts_core (
+    .clk(clk),
+    .rst_n(~rst),
+    .frame_start(scan_frame_start),
+    .gray_valid(gray_valid),
+    .gray(gray),
+    .gray_x(gray_x),
+    .gray_y(gray_y),
+    .edge_valid(roberts_edge_valid),
+    .edge_data(roberts_edge_data),
+    .edge_x(roberts_edge_x),
+    .edge_y(roberts_edge_y),
+    .edge_frame_done(roberts_frame_done)
+);
+
+// --- HDMI timing counters ---
 always @(posedge clk) begin
     if (rst) begin
         h_cnt <= 12'd0;
@@ -248,6 +364,7 @@ always @(posedge clk) begin
     end
 end
 
+// --- Display pipeline ---
 always @(posedge clk) begin
     if (rst) begin
         hs_reg <= 1'b0;
@@ -267,11 +384,18 @@ always @(posedge clk) begin
         vs_reg_d0 <= vs_reg;
         de_reg_d0 <= de_reg;
         display_rd_addr <= video_active ? disp_addr : 14'd0;
-        edge_pixel <= edge_mem[display_rd_addr];
+        // Select edge source based on display mode
+        case (display_mode)
+            MODE_LAPLACIAN: edge_pixel <= edge_mem_laplace[display_rd_addr];
+            MODE_PREWITT:   edge_pixel <= edge_mem_prewitt[display_rd_addr];
+            MODE_ROBERTS:   edge_pixel <= edge_mem_roberts[display_rd_addr];
+            default:        edge_pixel <= edge_mem[display_rd_addr];
+        endcase
         rgb_pixel <= rgb_mem[display_rd_addr];
     end
 end
 
+// --- Scan FSM and control ---
 always @(posedge clk) begin
     if (rst) begin
         scan_state <= SCAN_IDLE;
@@ -286,8 +410,8 @@ always @(posedge clk) begin
         scan_x_d2 <= 7'd0;
         scan_y_d2 <= 7'd0;
         scan_frame_start <= 1'b0;
-        sobel_done <= 1'b0;
-        display_mode <= MODE_EDGE;
+        frame_ready <= 1'b0;
+        display_mode <= MODE_EDGE;  // default: Sobel edge
         threshold <= 8'd80;
         overlay_enable <= 1'b0;
     end else begin
@@ -311,7 +435,7 @@ always @(posedge clk) begin
                     scan_state <= SCAN_CTRL_MODE_REQ;
                     scan_x <= 7'd0;
                     scan_y <= 7'd0;
-                    sobel_done <= 1'b0;
+                    frame_ready <= 1'b0;
                 end
             end
 
@@ -325,7 +449,8 @@ always @(posedge clk) begin
             end
 
             SCAN_CTRL_MODE_WAIT2: begin
-                display_mode <= bram_dout[1:0];
+                // Extended to 3-bit display_mode for multiple edge detectors
+                display_mode <= bram_dout[2:0];
                 scan_state <= SCAN_CTRL_THR_REQ;
             end
 
@@ -372,9 +497,10 @@ always @(posedge clk) begin
             end
 
             SCAN_WAIT: begin
-                if (edge_frame_done) begin
+                // Wait for all edge detectors to finish processing
+                if (edge_frame_done && laplace_frame_done && prewitt_frame_done && roberts_frame_done) begin
                     scan_state <= SCAN_IDLE;
-                    sobel_done <= 1'b1;
+                    frame_ready <= 1'b1;
                 end
             end
 
@@ -385,13 +511,31 @@ always @(posedge clk) begin
     end
 end
 
+// --- Write framebuffers ---
 always @(posedge clk) begin
+    // Raw RGB framebuffer
     if (scan_valid_d2) begin
         rgb_mem[scan_store_addr] <= bram_dout[23:0];
     end
 
+    // Sobel edge buffer
     if (edge_valid) begin
         edge_mem[edge_wr_addr] <= edge_data;
+    end
+
+    // Laplacian edge buffer
+    if (laplace_edge_valid) begin
+        edge_mem_laplace[laplace_wr_addr] <= laplace_edge_data;
+    end
+
+    // Prewitt edge buffer
+    if (prewitt_edge_valid) begin
+        edge_mem_prewitt[prewitt_wr_addr] <= prewitt_edge_data;
+    end
+
+    // Roberts edge buffer
+    if (roberts_edge_valid) begin
+        edge_mem_roberts[roberts_wr_addr] <= roberts_edge_data;
     end
 end
 
